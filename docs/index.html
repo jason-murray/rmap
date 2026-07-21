@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rMap - advanced input tooling for iRacing</title>
+<meta name="description" content="rMap maps your wheel, pedals and button boxes onto one virtual device with layers, multibinds and telemetry-gated bindings - plus teleFFB, a 360 Hz telemetry-driven force feedback engine.">
+<style>
+  :root {
+    --bg: #14141c;
+    --panel: #1c1c26;
+    --text: #e8e8ee;
+    --dim: #9a9aa6;
+    --accent: #8b5cf6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 880px; margin-left: auto; margin-right: auto; padding-left: 24px; padding-right: 24px; }
+  header { padding: 96px 0 64px; text-align: center; }
+  h1 { font-size: 3.2rem; letter-spacing: 0.04em; }
+  h1 .accent { color: var(--accent); }
+  .tagline { color: var(--dim); font-size: 1.25rem; margin-top: 12px; }
+  .cta {
+    display: inline-block;
+    margin-top: 36px;
+    padding: 14px 36px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+    border-radius: 8px;
+  }
+  .cta:hover { filter: brightness(1.1); }
+  .cta-sub { display: block; margin-top: 12px; color: var(--dim); font-size: 0.85rem; }
+  .cta-sub a { color: var(--dim); }
+  section { padding: 24px 0 0; }
+  h2 { font-size: 1.4rem; margin-bottom: 20px; color: var(--accent); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--panel); border-radius: 10px; padding: 20px 22px; }
+  .card h3 { font-size: 1.02rem; margin-bottom: 8px; }
+  .card p { color: var(--dim); font-size: 0.93rem; }
+  .steps { list-style: none; counter-reset: step; }
+  .steps li {
+    counter-increment: step; margin-bottom: 14px; padding-left: 46px; position: relative;
+  }
+  .steps li::before {
+    content: counter(step); position: absolute; left: 0; top: 2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--panel); color: var(--accent);
+    display: flex; align-items: center; justify-content: center; font-weight: 600;
+  }
+  footer { margin-top: 48px; padding: 48px 0 64px; color: var(--dim); font-size: 0.85rem; text-align: center; }
+</style>
+</head>
+<body>
+  <header class="wrap">
+    <h1>r<span class="accent">Map</span></h1>
+    <p class="tagline">Advanced input tooling for iRacing. Map your wheel, pedals and button boxes onto one virtual device - with layers, multibinds and telemetry-aware bindings - plus teleFFB, a 360&nbsp;Hz telemetry-driven force feedback engine.</p>
+    <a class="cta" href="https://github.com/jason-murray/rMap/releases/latest/download/rMap-Setup.exe">Download for Windows</a>
+    <span class="cta-sub">Requires <a href="https://www.iracing.com/">iRacing</a> · <a href="https://github.com/jason-murray/rMap/releases">all releases</a></span>
+  </header>
+
+  <section class="wrap">
+    <h2>Mapping</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>One device for everything</h3>
+        <p>Routes every wheel, pedal set and button box onto a single vJoy virtual device, with a guided binding window that walks iRacing's options screen with you - capture, label and trigger each output.</p>
+      </div>
+      <div class="card">
+        <h3>Layers</h3>
+        <p>Multiply your buttons: a layer button temporarily remaps others to alternate outputs, reverting after an inactivity timeout.</p>
+      </div>
+      <div class="card">
+        <h3>Multibind</h3>
+        <p>One button, three functions: short press, long hold and double tap each fire their own output.</p>
+      </div>
+      <div class="card">
+        <h3>Gated bindings</h3>
+        <p>Bindings that only apply while a telemetry condition holds - above a speed, in the pits, stopped, off throttle. The same button can do different things at speed and in the pit lane.</p>
+      </div>
+      <div class="card">
+        <h3>Race helpers</h3>
+        <p>Brake Magic drag from a button, hold-to-shift into reverse that reads the actual gear, and X Guard to stop throttle/brake overlap.</p>
+      </div>
+      <div class="card">
+        <h3>Encoders &amp; mouse</h3>
+        <p>Subdivide fine-stepped encoders into chunkier steps, and drive the Windows mouse cursor from your funky switch for iRacing's clickable black boxes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2>teleFFB</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>360 Hz telemetry FFB</h3>
+        <p>Replays iRacing's full 360 Hz steering-shaft torque signal to your wheelbase at up to 1000 Hz output - detail mode for texture, low-latency mode for response.</p>
+      </div>
+      <div class="card">
+        <h3>Tuned your way</h3>
+        <p>Strength, drive with soft-clip, smoothing, and additive effects from suspension telemetry - kerb strikes and fine road texture.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2>Get started</h2>
+    <ol class="steps">
+      <li>Download and run the installer.</li>
+      <li>rMap walks you through installing the bundled vJoy driver and configuring the virtual device - one click each.</li>
+      <li>Select your devices, start the pipeline, and bind the outputs in iRacing using the guided Binding window.</li>
+      <li>For teleFFB, disable iRacing's own force feedback and press Start FFB - rMap remembers your wheelbase and starts automatically next time.</li>
+    </ol>
+    <p style="color: var(--dim); margin-top: 12px;">
+      Updates are built in: rMap checks for new versions at launch and installs
+      them with one click.
+    </p>
+  </section>
+
+  <footer class="wrap">
+    Proprietary software · © Jason · All rights reserved
+  </footer>
+</body>
+</html>
