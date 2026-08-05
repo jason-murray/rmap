@@ -40,12 +40,62 @@
   .cta-sub { display: block; margin-top: 12px; color: var(--dim); font-size: 0.85rem; }
   .cta-sub a { color: var(--dim); }
   section { padding: 24px 0 0; }
-  h2 { font-size: 1.4rem; margin-bottom: 20px; color: var(--accent); }
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  @media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
-  .card { background: var(--panel); border-radius: 10px; padding: 20px 22px; }
-  .card h3 { font-size: 1.02rem; margin-bottom: 8px; }
+  h2 { font-size: 1.4rem; margin-bottom: 16px; color: var(--accent); }
+  .cards { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .card { background: var(--panel); border-radius: 10px; padding: 14px 18px; }
+  .card h3 { font-size: 1rem; margin-bottom: 2px; }
   .card p { color: var(--dim); font-size: 0.93rem; }
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; margin-top: 8px; }
+  @media (max-width: 620px) { .shots { grid-template-columns: 1fr; } }
+  .shots figure { margin: 0; }
+  .shots img {
+    width: 100%; height: auto; display: block;
+    border-radius: 10px; border: 1px solid #2a2a38;
+    cursor: zoom-in;
+  }
+  .shots figcaption { color: var(--dim); font-size: 0.82rem; margin-top: 8px; text-align: center; }
+  .carousel { position: relative; }
+  .car-track {
+    display: flex; gap: 16px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  .car-track::-webkit-scrollbar { display: none; }
+  .car-track { align-items: center; }
+  .car-track figure {
+    flex: 0 0 100%; scroll-snap-align: center;
+    display: flex; flex-direction: column; align-items: center; margin: 0;
+  }
+  .car-track img {
+    max-width: 100%; max-height: 440px; width: auto; height: auto;
+    border-radius: 10px; border: 1px solid #2a2a38;
+    cursor: zoom-in;
+  }
+  /* Stack all descriptions in one grid cell (constant height = tallest card)
+     and cross-fade the active one. */
+  .car-desc { display: grid; }
+  .car-desc .card {
+    grid-area: 1 / 1;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+  }
+  .car-desc .card.active { opacity: 1; visibility: visible; }
+  .car-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid #2a2a38; background: rgba(28, 28, 38, 0.9);
+    color: var(--text); font-size: 1.2rem; line-height: 1;
+    cursor: pointer; z-index: 2;
+  }
+  .car-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .car-btn.prev { left: -8px; }
+  .car-btn.next { right: -8px; }
+  .car-dots { display: flex; justify-content: center; gap: 8px; margin: 12px 0 24px; }
+  .car-dots button {
+    width: 8px; height: 8px; border-radius: 50%; border: none;
+    background: #3a3a4a; cursor: pointer; padding: 0;
+  }
+  .car-dots button.active { background: var(--accent); }
   .steps { list-style: none; counter-reset: step; }
   .steps li {
     counter-increment: step; margin-bottom: 14px; padding-left: 46px; position: relative;
@@ -57,6 +107,17 @@
     display: flex; align-items: center; justify-content: center; font-weight: 600;
   }
   footer { margin-top: 48px; padding: 48px 0 64px; color: var(--dim); font-size: 0.85rem; text-align: center; }
+  .lightbox {
+    position: fixed; inset: 0; z-index: 10;
+    display: none; align-items: center; justify-content: center;
+    background: rgba(10, 10, 16, 0.88);
+    padding: 32px; cursor: zoom-out;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 100%; max-height: 100%;
+    border-radius: 10px; border: 1px solid #2a2a38;
+  }
 </style>
 </head>
 <body>
@@ -68,15 +129,60 @@
   </header>
 
   <section class="wrap">
+    <div class="shots">
+      <figure>
+        <img src="img/app-mapping.png" alt="rMap's Mapping tab showing device selection, Brake Magic and Shift to Reverse settings" loading="lazy">
+        <figcaption>Mapping - devices, race helpers and bindings in one place</figcaption>
+      </figure>
+      <figure>
+        <img src="img/app-teleffb.png" alt="rMap's teleFFB tab showing the live torque trace and FFB tuning controls" loading="lazy">
+        <figcaption>teleFFB - live torque trace and tuning</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="wrap">
     <h2>Mapping</h2>
-    <div class="grid">
+    <div class="carousel">
+      <button class="car-btn prev" aria-label="Previous screenshot">&#8249;</button>
+      <div class="car-track">
+        <figure>
+          <img src="img/binding-window.png" alt="rMap's Binding window listing named axes and buttons with Bind and Trigger controls" loading="lazy">
+        </figure>
+        <figure>
+          <img src="img/feat-layers.png" alt="Two button layers, each with an activate button and its own rebound inputs" loading="lazy">
+        </figure>
+        <figure>
+          <img src="img/feat-multibind.png" alt="The Multibind builder mapping a long hold or double tap to another output" loading="lazy">
+        </figure>
+        <figure>
+          <img src="img/feat-gated.png" alt="Gated bindings rebinding Look Left and Look Right to camera controls while in a replay" loading="lazy">
+        </figure>
+        <figure>
+          <img src="img/feat-brake-magic.png" alt="Brake Magic settings: bound button, drag level and hold-to-engage time" loading="lazy">
+        </figure>
+        <figure>
+          <img src="img/feat-shift-reverse.png" alt="Shift to Reverse settings: bound paddle, target gear and hold time" loading="lazy">
+        </figure>
+        <figure>
+          <img src="img/feat-x-guard.png" alt="X Guard settings: threshold slider and activation counter" loading="lazy">
+        </figure>
+        <figure>
+          <img src="img/feat-mouse.png" alt="Mouse emulation settings driving the cursor from funky switch directions" loading="lazy">
+        </figure>
+      </div>
+      <button class="car-btn next" aria-label="Next screenshot">&#8250;</button>
+    </div>
+    <div class="car-dots"></div>
+    <!-- One description per slide, shown for the active slide only -->
+    <div class="car-desc">
       <div class="card">
-        <h3>One device for everything</h3>
-        <p>Routes every wheel, pedal set and button box onto a single vJoy virtual device, with a guided binding window that walks iRacing's options screen with you - capture, label and trigger each output.</p>
+        <h3>Guided binding</h3>
+        <p>The Binding window walks iRacing's Options screen with you: name each output, hit Bind to capture the physical control, then Trigger (or Sweep for axes) to press it into iRacing's binding prompt - no more guessing which button box row just flashed.</p>
       </div>
       <div class="card">
         <h3>Layers</h3>
-        <p>Multiply your buttons: a layer button temporarily remaps others to alternate outputs, reverting after an inactivity timeout.</p>
+        <p>Multiply your buttons: pressing a layer's activate button overlays alternate bindings on the wheel - remap as many inputs as you like while it holds. A layer can dismiss itself after a timeout, after the next press (one-shot), or stay up until dismissed - ideal for giving one encoder several jobs.</p>
       </div>
       <div class="card">
         <h3>Multibind</h3>
@@ -84,29 +190,65 @@
       </div>
       <div class="card">
         <h3>Gated bindings</h3>
-        <p>Bindings that only apply while a telemetry condition holds - above a speed, in the pits, stopped, off throttle. The same button can do different things at speed and in the pit lane.</p>
+        <p>Rebind inputs while a telemetry condition holds - above or below a speed, in the pit lane, stopped, off throttle, watching a replay. The same button can scrub cameras in a replay and do its day job on track.</p>
       </div>
       <div class="card">
-        <h3>Race helpers</h3>
-        <p>Brake Magic drag from a button, hold-to-shift into reverse that reads the actual gear, and X Guard to stop throttle/brake overlap.</p>
+        <h3>Brake Magic</h3>
+        <p>A bindable brake-drag button: hold it and rMap applies a fixed, configurable brake drag - consistent every time, released the moment you let go.</p>
       </div>
       <div class="card">
-        <h3>Encoders &amp; mouse</h3>
-        <p>Subdivide fine-stepped encoders into chunkier steps, and drive the Windows mouse cursor from your funky switch for iRacing's clickable black boxes.</p>
+        <h3>Shift to Reverse</h3>
+        <p>Hold the downshift paddle and rMap keeps pulsing downshifts until the target gear is actually engaged - it reads the real gear from telemetry, so one hold finds reverse (or neutral) every time.</p>
+      </div>
+      <div class="card">
+        <h3>X Guard</h3>
+        <p>Drops the throttle the instant brake input is detected, so overlapping pedal inputs never reach the sim - with a counter that shows how often it saved you.</p>
+      </div>
+      <div class="card">
+        <h3>Mouse emulation</h3>
+        <p>Drive the Windows mouse cursor from your funky switch for iRacing's clickable black boxes - hold to toggle it on, steer with the switch, click from a wheel button.</p>
+      </div>
+    </div>
+    <div class="cards" style="margin-top: 10px;">
+      <div class="card">
+        <h3>Live and instant</h3>
+        <p>Every change applies to the running pipeline immediately and saves itself - there is no Save button, and no restart between tweaks.</p>
       </div>
     </div>
   </section>
 
   <section class="wrap">
     <h2>teleFFB</h2>
-    <div class="grid">
+    <div class="cards">
       <div class="card">
         <h3>360 Hz telemetry FFB</h3>
         <p>Replays iRacing's full 360 Hz steering-shaft torque signal to your wheelbase at up to 1000 Hz output - detail mode for texture, low-latency mode for response.</p>
       </div>
       <div class="card">
         <h3>Tuned your way</h3>
-        <p>Strength, drive with soft-clip, smoothing, and additive effects from suspension telemetry - kerb strikes and fine road texture.</p>
+        <p>Strength, drive with soft-clip, smoothing, minimum force for belt-driven wheels, and impact protection - all adjustable live while you drive.</p>
+      </div>
+      <div class="card">
+        <h3>Telemetry effects</h3>
+        <p>Additive effects layered on top of the torque signal: pit-limiter rumble, kerb strikes and fine road texture from suspension telemetry.</p>
+      </div>
+      <div class="card">
+        <h3>Steering centering</h3>
+        <p>Re-center the wheel after damage or correct a calibration offset from a button, a Stream Deck key, or a SimHub binding - without leaving the car.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2>Companions</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Stream Deck plugin</h3>
+        <p>rMap Control on your Stream Deck: FFB strength up/down, FFB on/off, steering-center set and nudge (dials supported), and a live X Guard cut counter - with rMap's state shown right on the keys. Bundled with the app, one-click install.</p>
+      </div>
+      <div class="card">
+        <h3>SimHub plugin &amp; overlays</h3>
+        <p>Exposes rMap's live state as SimHub properties and its actions as bindable controls, and ships two transparent overlay dashes: feature pills that light up as Brake Magic, X Guard or a layer engages, the active layer's name with its countdown, and a toast for every change.</p>
       </div>
     </div>
   </section>
@@ -118,6 +260,7 @@
       <li>rMap walks you through installing the bundled vJoy driver and configuring the virtual device - one click each.</li>
       <li>Select your devices, start the pipeline, and bind the outputs in iRacing using the guided Binding window.</li>
       <li>For teleFFB, disable iRacing's own force feedback and press Start FFB - rMap remembers your wheelbase and starts automatically next time.</li>
+      <li>Optionally install the bundled Stream Deck and SimHub companions from the Shortcuts tab.</li>
     </ol>
     <p style="color: var(--dim); margin-top: 12px;">
       Updates are built in: rMap checks for new versions at launch and installs
@@ -128,5 +271,55 @@
   <footer class="wrap">
     Proprietary software · © Jason · All rights reserved
   </footer>
+
+  <div class="lightbox" id="lightbox"><img alt=""></div>
+  <script>
+    // Lightbox: any screenshot enlarges on click
+    const lb = document.getElementById("lightbox");
+    const lbImg = lb.querySelector("img");
+    document.querySelectorAll(".shots img, .car-track img").forEach(img => {
+      img.addEventListener("click", () => {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lb.classList.add("open");
+      });
+    });
+    lb.addEventListener("click", () => lb.classList.remove("open"));
+    addEventListener("keydown", e => {
+      if (e.key === "Escape") lb.classList.remove("open");
+    });
+
+    // Carousel: snap-scrolled track with arrows and dots
+    const track = document.querySelector(".car-track");
+    const slides = [...track.children];
+    const dots = document.querySelector(".car-dots");
+    const pos = i => slides[i].offsetLeft - slides[0].offsetLeft;
+    const goTo = i => track.scrollTo({ left: pos(i), behavior: "smooth" });
+    slides.forEach((_, i) => {
+      const d = document.createElement("button");
+      d.setAttribute("aria-label", "Screenshot " + (i + 1));
+      d.addEventListener("click", () => goTo(i));
+      dots.appendChild(d);
+    });
+    // Nearest slide to the current scroll position (exact offsets, gaps included)
+    const current = () => {
+      let best = 0;
+      slides.forEach((_, i) => {
+        if (Math.abs(track.scrollLeft - pos(i)) < Math.abs(track.scrollLeft - pos(best))) best = i;
+      });
+      return best;
+    };
+    const descs = [...document.querySelectorAll(".car-desc .card")];
+    function setActive() {
+      const n = current();
+      [...dots.children].forEach((d, i) => d.classList.toggle("active", i === n));
+      descs.forEach((c, i) => c.classList.toggle("active", i === n));
+    }
+    setActive();
+    track.addEventListener("scroll", () => requestAnimationFrame(setActive));
+    const step = dir => goTo((current() + dir + slides.length) % slides.length);
+    document.querySelector(".car-btn.prev").addEventListener("click", () => step(-1));
+    document.querySelector(".car-btn.next").addEventListener("click", () => step(1));
+  </script>
 </body>
 </html>
