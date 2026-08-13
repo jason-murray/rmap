@@ -3,8 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>rMap - advanced input tooling for iRacing</title>
-<meta name="description" content="rMap maps your wheel, pedals and button boxes onto one virtual device with layers, multibinds and telemetry-gated bindings - plus teleFFB, a 360 Hz telemetry-driven force feedback engine.">
+<title>rMap - iRacing Input Mapping &amp; Force Feedback (teleFFB)</title>
+<meta name="description" content="Windows app for iRacing: map your wheel, pedals and button boxes onto one virtual device with layers, multibinds and telemetry-gated bindings - plus teleFFB, a 360 Hz telemetry-driven force feedback engine.">
+<link rel="canonical" href="https://jason-murray.github.io/rMap/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#14141c">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="rMap">
+<meta property="og:title" content="rMap - iRacing Input Mapping &amp; Force Feedback">
+<meta property="og:description" content="Map your wheel, pedals and button boxes onto one virtual device with layers, multibinds and telemetry-gated bindings - plus teleFFB, a 360 Hz telemetry-driven force feedback engine.">
+<meta property="og:url" content="https://jason-murray.github.io/rMap/">
+<meta property="og:image" content="https://jason-murray.github.io/rMap/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="rMap - advanced input tooling for iRacing, next to a screenshot of the teleFFB tuning screen">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "rMap",
+  "url": "https://jason-murray.github.io/rMap/",
+  "description": "Windows app for iRacing that maps wheels, pedals and button boxes onto one virtual device with layers, multibinds and telemetry-gated bindings, plus teleFFB, a 360 Hz telemetry-driven force feedback engine.",
+  "operatingSystem": "Windows",
+  "applicationCategory": "UtilitiesApplication",
+  "downloadUrl": "https://github.com/jason-murray/rMap/releases/latest/download/rMap-Setup.exe",
+  "softwareRequirements": "iRacing",
+  "image": "https://jason-murray.github.io/rMap/img/og.png",
+  "screenshot": [
+    "https://jason-murray.github.io/rMap/img/app-mapping.png",
+    "https://jason-murray.github.io/rMap/img/app-teleffb.png"
+  ],
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "Jason Murray" }
+}
+</script>
 <style>
   :root {
     --bg: #14141c;
@@ -131,44 +164,44 @@
   <section class="wrap">
     <div class="shots">
       <figure>
-        <img src="img/app-mapping.png" alt="rMap's Mapping tab showing device selection, Brake Magic and Shift to Reverse settings" loading="lazy">
+        <img src="img/app-mapping.png" alt="rMap's Mapping tab showing device selection, Brake Magic and Shift to Reverse settings" width="796" height="949" fetchpriority="high">
         <figcaption>Mapping - devices, race helpers and bindings in one place</figcaption>
       </figure>
       <figure>
-        <img src="img/app-teleffb.png" alt="rMap's teleFFB tab showing the live torque trace and FFB tuning controls" loading="lazy">
+        <img src="img/app-teleffb.png" alt="rMap's teleFFB tab showing the live torque trace and FFB tuning controls" width="796" height="949" fetchpriority="high">
         <figcaption>teleFFB - live torque trace and tuning</figcaption>
       </figure>
     </div>
   </section>
 
   <section class="wrap">
-    <h2>Mapping</h2>
+    <h2>Input mapping</h2>
     <div class="carousel">
       <button class="car-btn prev" aria-label="Previous screenshot">&#8249;</button>
       <div class="car-track">
         <figure>
-          <img src="img/binding-window.png" alt="rMap's Binding window listing named axes and buttons with Bind and Trigger controls" loading="lazy">
+          <img src="img/binding-window.png" alt="rMap's Binding window listing named axes and buttons with Bind and Trigger controls" width="576" height="689" loading="lazy" decoding="async">
         </figure>
         <figure>
-          <img src="img/feat-layers.png" alt="Two button layers, each with an activate button and its own rebound inputs" loading="lazy">
+          <img src="img/feat-layers.png" alt="Two button layers, each with an activate button and its own rebound inputs" width="764" height="465" loading="lazy" decoding="async">
         </figure>
         <figure>
-          <img src="img/feat-multibind.png" alt="The Multibind builder mapping a long hold or double tap to another output" loading="lazy">
+          <img src="img/feat-multibind.png" alt="The Multibind builder mapping a long hold or double tap to another output" width="764" height="178" loading="lazy" decoding="async">
         </figure>
         <figure>
-          <img src="img/feat-gated.png" alt="Gated bindings rebinding Look Left and Look Right to camera controls while in a replay" loading="lazy">
+          <img src="img/feat-gated.png" alt="Gated bindings rebinding Look Left and Look Right to camera controls while in a replay" width="764" height="258" loading="lazy" decoding="async">
         </figure>
         <figure>
-          <img src="img/feat-brake-magic.png" alt="Brake Magic settings: bound button, drag level and hold-to-engage time" loading="lazy">
+          <img src="img/feat-brake-magic.png" alt="Brake Magic settings: bound button, drag level and hold-to-engage time" width="764" height="266" loading="lazy" decoding="async">
         </figure>
         <figure>
-          <img src="img/feat-shift-reverse.png" alt="Shift to Reverse settings: bound paddle, target gear and hold time" loading="lazy">
+          <img src="img/feat-shift-reverse.png" alt="Shift to Reverse settings: bound paddle, target gear and hold time" width="764" height="262" loading="lazy" decoding="async">
         </figure>
         <figure>
-          <img src="img/feat-x-guard.png" alt="X Guard settings: threshold slider and activation counter" loading="lazy">
+          <img src="img/feat-x-guard.png" alt="X Guard settings: threshold slider and activation counter" width="764" height="254" loading="lazy" decoding="async">
         </figure>
         <figure>
-          <img src="img/feat-mouse.png" alt="Mouse emulation settings driving the cursor from funky switch directions" loading="lazy">
+          <img src="img/feat-mouse.png" alt="Mouse emulation settings driving the cursor from funky switch directions" width="764" height="450" loading="lazy" decoding="async">
         </figure>
       </div>
       <button class="car-btn next" aria-label="Next screenshot">&#8250;</button>
@@ -218,7 +251,7 @@
   </section>
 
   <section class="wrap">
-    <h2>teleFFB</h2>
+    <h2>teleFFB - telemetry force feedback</h2>
     <div class="cards">
       <div class="card">
         <h3>360 Hz telemetry FFB</h3>
@@ -240,7 +273,7 @@
   </section>
 
   <section class="wrap">
-    <h2>Companions</h2>
+    <h2>Stream Deck &amp; SimHub companions</h2>
     <div class="cards">
       <div class="card">
         <h3>Stream Deck plugin</h3>
