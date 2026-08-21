@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>rMap - iRacing Input Mapping &amp; Force Feedback (teleFFB)</title>
 <meta name="description" content="Windows app for iRacing: map your wheel, pedals and button boxes onto one virtual device with layers, multibinds and telemetry-gated bindings - plus teleFFB, a 360 Hz telemetry-driven force feedback engine.">
-<link rel="canonical" href="https://jason-murray.github.io/rMap/">
+<link rel="canonical" href="https://jason-murray.github.io/rmap/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#14141c">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="rMap">
 <meta property="og:title" content="rMap - iRacing Input Mapping &amp; Force Feedback">
 <meta property="og:description" content="Map your wheel, pedals and button boxes onto one virtual device with layers, multibinds and telemetry-gated bindings - plus teleFFB, a 360 Hz telemetry-driven force feedback engine.">
-<meta property="og:url" content="https://jason-murray.github.io/rMap/">
-<meta property="og:image" content="https://jason-murray.github.io/rMap/img/og.png">
+<meta property="og:url" content="https://jason-murray.github.io/rmap/">
+<meta property="og:image" content="https://jason-murray.github.io/rmap/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="rMap - advanced input tooling for iRacing, next to a screenshot of the teleFFB tuning screen">
@@ -23,16 +23,16 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "rMap",
-  "url": "https://jason-murray.github.io/rMap/",
+  "url": "https://jason-murray.github.io/rmap/",
   "description": "Windows app for iRacing that maps wheels, pedals and button boxes onto one virtual device with layers, multibinds and telemetry-gated bindings, plus teleFFB, a 360 Hz telemetry-driven force feedback engine.",
   "operatingSystem": "Windows",
   "applicationCategory": "UtilitiesApplication",
-  "downloadUrl": "https://github.com/jason-murray/rMap/releases/latest/download/rMap-Setup.exe",
+  "downloadUrl": "https://github.com/jason-murray/rmap/releases/latest/download/rMap-Setup.exe",
   "softwareRequirements": "iRacing",
-  "image": "https://jason-murray.github.io/rMap/img/og.png",
+  "image": "https://jason-murray.github.io/rmap/img/og.png",
   "screenshot": [
-    "https://jason-murray.github.io/rMap/img/app-mapping.png",
-    "https://jason-murray.github.io/rMap/img/app-teleffb.png"
+    "https://jason-murray.github.io/rmap/img/app-mapping.png",
+    "https://jason-murray.github.io/rmap/img/app-teleffb.png"
   ],
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "author": { "@type": "Person", "name": "Jason Murray" }
@@ -140,6 +140,10 @@
     display: flex; align-items: center; justify-content: center; font-weight: 600;
   }
   footer { margin-top: 48px; padding: 48px 0 64px; color: var(--dim); font-size: 0.85rem; text-align: center; }
+  footer a { color: var(--dim); }
+  footer a:hover { color: var(--text); }
+  footer p + p { margin-top: 8px; }
+  footer .made { color: var(--text); }
   .lightbox {
     position: fixed; inset: 0; z-index: 10;
     display: none; align-items: center; justify-content: center;
@@ -157,8 +161,8 @@
   <header class="wrap">
     <h1>r<span class="accent">Map</span></h1>
     <p class="tagline">Advanced input tooling for iRacing. Map your wheel, pedals and button boxes onto one virtual device - with layers, multibinds and telemetry-aware bindings - plus teleFFB, a 360&nbsp;Hz telemetry-driven force feedback engine.</p>
-    <a class="cta" href="https://github.com/jason-murray/rMap/releases/latest/download/rMap-Setup.exe">Download for Windows</a>
-    <span class="cta-sub">Requires <a href="https://www.iracing.com/">iRacing</a> · <a href="https://github.com/jason-murray/rMap/releases">all releases</a></span>
+    <a class="cta" href="https://github.com/jason-murray/rmap/releases/latest/download/rMap-Setup.exe">Download for Windows</a>
+    <span class="cta-sub">Requires <a href="https://www.iracing.com/">iRacing</a> · <a href="https://github.com/jason-murray/rmap/releases">all releases</a></span>
   </header>
 
   <section class="wrap">
@@ -302,7 +306,10 @@
   </section>
 
   <footer class="wrap">
-    Proprietary software · © Jason · All rights reserved
+    <p>Questions or feedback? <a href="https://discord.gg/wbEJd2fYhF">Join the rMap Discord</a></p>
+    <p>More by Jason: <a href="https://jason-murray.github.io/marks/">Marks - audio braking markers for SimHub</a> · <a href="https://fbe5ecd9-telly.jsn256.workers.dev/">Telly - browser telemetry viewer</a></p>
+    <p class="made">Made for speed by Jason</p>
+    <p>Proprietary software · © Jason · All rights reserved</p>
   </footer>
 
   <div class="lightbox" id="lightbox"><img alt=""></div>

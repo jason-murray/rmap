@@ -4,7 +4,7 @@ rMap maps your **wheel, pedals and button boxes onto one virtual device**,
 with layers, multibinds and telemetry-aware bindings - plus **teleFFB**, a
 360 Hz telemetry-driven force feedback engine for your wheelbase.
 
-**[⬇ Download the installer](https://github.com/jason-murray/rMap/releases/latest/download/rMap-Setup.exe)** · [All releases](https://github.com/jason-murray/rMap/releases) · [Website](https://jason-murray.github.io/rMap/)
+**[⬇ Download the installer](https://github.com/jason-murray/rmap/releases/latest/download/rMap-Setup.exe)** · [All releases](https://github.com/jason-murray/rmap/releases) · [Website](https://jason-murray.github.io/rmap/)
 
 ## Features
 
@@ -24,7 +24,7 @@ with layers, multibinds and telemetry-aware bindings - plus **teleFFB**, a
 
 ## Install
 
-1. [Download rMap-Setup.exe](https://github.com/jason-murray/rMap/releases/latest/download/rMap-Setup.exe)
+1. [Download rMap-Setup.exe](https://github.com/jason-murray/rmap/releases/latest/download/rMap-Setup.exe)
    and run it.
 2. rMap walks you through installing the bundled vJoy driver and configuring
    the virtual device.
